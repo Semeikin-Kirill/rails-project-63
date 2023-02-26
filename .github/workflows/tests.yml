@@ -1,11 +1,9 @@
-name: Ruby
+name: tests
 
 on:
   push:
     branches:
       - master
-
-  pull_request:
 
 jobs:
   build:
@@ -23,5 +21,7 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
-    - name: Run the default task
-      run: bundle exec rake
+    - name: install
+      run: make install
+    - name: run tests
+      run: make tests
