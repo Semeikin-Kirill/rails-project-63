@@ -2,5 +2,5 @@ install:
 	bundle install
 lint:
 	rubocop
-tests:
+test:
 	rake test

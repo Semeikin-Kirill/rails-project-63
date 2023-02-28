@@ -11,8 +11,8 @@ module HexletCode
       if @single_tags_list.include?(tag_name)
         "<#{tag_name}#{text_attributes}>"
       else
-        text = block_given? ? yield : ""
-        "<#{tag_name}#{text_attributes}>#{text}</#{tag_name}>"
+        result = block_given? ? yield : ""
+        "<#{tag_name}#{text_attributes}>#{result}</#{tag_name}>"
       end
     end
 
