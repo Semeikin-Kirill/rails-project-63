@@ -23,7 +23,7 @@ end
 
 describe 'Form generation with block' do
   model = Struct.new(:name, :job, :gender, keyword_init: true)
-  user = model.new name: 'rob' job: 'hexlet', gender: 'm'
+  user = model.new name: 'rob', job: 'hexlet', gender: 'm'
   it "generate form with two inputs" do
     expected = "<form action=\"#\" method=\"post\">
   <label for=\"name\">Name</label>
