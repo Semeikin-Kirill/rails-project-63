@@ -1,6 +1,6 @@
 install:
 	bundle install
 lint:
-	rubocop
+	bundle exec rubocop lib/ test/
 test:
-	rake test
+	bundle exec rake test

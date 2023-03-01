@@ -8,9 +8,8 @@ module HexletCode
   autoload :FormCreate, "hexlet_code/form.rb"
 
   def self.form_for(user, url: "#", **options)
-
     attributes_form = { action: url, method: "post" }.merge(options)
-    Tag.build('form', attributes_form) do
+    Tag.build("form", attributes_form) do
       f = FormCreate.new user
       value = yield(f) if block_given?
       if f.get_result.empty?
