@@ -23,6 +23,9 @@ describe "Tag generation" do
     result = HexletCode::Tag.build("label") { "Email" }
     assert_equal expected, result
   end
+end
+
+describe "Tags" do
   it "generate label with attributes" do
     expected = '<label for="email">Email</label>'
     result = HexletCode::Tag.build("label", for: "email") { "Email" }

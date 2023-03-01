@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module HexletCode
+  # generation form
   class FormCreate
     def initialize(user)
       @user = user
@@ -11,15 +12,23 @@ module HexletCode
       value = @user.public_send name
       if as.nil?
         options_input = { name: name.to_s, type: "text", value: value }.merge(options)
-        label = HexletCode::Tag.build("label", for: name.to_s) { name.to_s.capitalize }
-        @form << "  #{label}"
+        label name
         input = HexletCode::Tag.build "input", options_input
         @form << "  #{input}"
       else
-        options_text = { name: name.to_s, cols: "20", rows: "40" }.merge(options)
-        textarea = HexletCode::Tag.build("textarea", options_text) { value }
-        @form << "  #{textarea}"
+        textarea name, value, options
       end
+    end
+
+    def textarea(name, value, options)
+      options_text = { name: name.to_s, cols: "20", rows: "40" }.merge(options)
+      textarea = HexletCode::Tag.build("textarea", options_text) { value }
+      @form << "  #{textarea}"
+    end
+
+    def label(name)
+      label = HexletCode::Tag.build("label", for: name.to_s) { name.to_s.capitalize }
+      @form << "  #{label}"
     end
 
     def submit(value = "Save")
@@ -27,7 +36,7 @@ module HexletCode
       @form << "  #{submit}"
     end
 
-    def get_result
+    def result
       if @form.any?
         ["\n", @form.join("\n"), "\n"].join
       else

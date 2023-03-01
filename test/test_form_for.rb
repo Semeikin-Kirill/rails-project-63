@@ -36,7 +36,11 @@ describe "Form generation with block" do
     end
     assert_equal expected, result
   end
+end
 
+describe "form with class" do
+  model = Struct.new(:name, :job, :gender, keyword_init: true)
+  user = model.new name: "rob", job: "hexlet", gender: "m"
   it "generate form with class" do
     expected = "<form action=\"#\" method=\"post\">
   <label for=\"name\">Name</label>
@@ -50,7 +54,11 @@ describe "Form generation with block" do
     end
     assert_equal expected, result
   end
+end
 
+describe "Form gen" do
+  model = Struct.new(:name, :job, :gender, keyword_init: true)
+  user = model.new name: "rob", job: "hexlet", gender: "m"
   it "generate form with textarea" do
     expected = "<form action=\"#\" method=\"post\">
   <textarea name=\"job\" cols=\"20\" rows=\"40\">hexlet</textarea>
@@ -91,7 +99,11 @@ describe "Form generation with submit" do
     end
     assert_equal expected, result
   end
+end
 
+describe "Form with submit" do
+  model = Struct.new(:name, :job, :gender, keyword_init: true)
+  user = model.new job: "hexlet"
   it "generate form with two inputs and submit with text" do
     expected = "<form action=\"#\" method=\"post\">
   <label for=\"name\">Name</label>

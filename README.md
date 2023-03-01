@@ -1,16 +1,10 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Semeikin-Kirill/rails-project-63/workflows/hexlet-check/badge.svg)](https://github.com/Semeikin-Kirill/rails-project-63/actions)
-[![CI Status](https://github.com/Semeikin-Kirill/rails-project-63/workflows/main/badge.svg)](https://github.com/Semeikin-Kirill/rails-project-63/actions)
+[![Actions Status](https://github.com/Semeikin-Kirill/rails-project-63/actions/workflows/main/badge.svg)](https://github.com/Semeikin-Kirill/rails-project-63/actions)
 
 # HexletCode
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hexlet_code`. To experiment with that code, run `bin/console` for an interactive prompt.
-
 ## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
 
 Install the gem and add to the application's Gemfile by executing:
 
@@ -22,7 +16,22 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+User = Struct.new(:name, :job, :gender, keyword_init: true)
+user = User.new name: 'rob', job: 'hexlet', gender: 'm'
+
+HexletCode.form_for user do |f|
+  # Проверяет есть ли значение внутри name
+  f.input :name
+  # Проверяет есть ли значение внутри job
+  f.input :job, as: :text
+end
+
+# <form action="#" method="post">
+#   <input name="name" type="text" value="rob">
+#   <textarea cols="20" rows="40" name="job">hexlet</textarea>
+# </form>
+```
 
 ## Development
 

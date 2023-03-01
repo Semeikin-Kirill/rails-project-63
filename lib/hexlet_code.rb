@@ -12,10 +12,10 @@ module HexletCode
     Tag.build("form", attributes_form) do
       f = FormCreate.new user
       value = yield(f) if block_given?
-      if f.get_result.empty?
+      if f.result.empty?
         value
       else
-        f.get_result
+        f.result
       end
     end
   end
