@@ -32,7 +32,7 @@ module HexletCode
     end
 
     def submit(value = 'Save')
-      submit = HexletCode::Tag.build 'input', type: 'submit', value: value
+      submit = HexletCode::Tag.build('input', { type: 'submit', value: value })
       @form << "  #{submit}"
     end
 
