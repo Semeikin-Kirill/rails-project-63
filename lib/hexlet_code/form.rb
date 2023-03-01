@@ -10,9 +10,9 @@ module HexletCode
 
     def input(name, as: nil, **options)
       value = @user.public_send name
+      label name
       if as.nil?
         options_input = { name: name.to_s, type: "text", value: value }.merge(options)
-        label name
         input = HexletCode::Tag.build "input", options_input
         @form << "  #{input}"
       else

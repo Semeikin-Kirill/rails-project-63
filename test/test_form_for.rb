@@ -28,6 +28,7 @@ describe "Form generation with block" do
     expected = "<form action=\"#\" method=\"post\">
   <label for=\"name\">Name</label>
   <input name=\"name\" type=\"text\" value=\"rob\">
+  <label for=\"job\">Job</label>
   <textarea name=\"job\" cols=\"20\" rows=\"40\">hexlet</textarea>
 </form>"
     result = HexletCode.form_for user do |f|
@@ -61,6 +62,7 @@ describe "Form gen" do
   user = model.new name: "rob", job: "hexlet", gender: "m"
   it "generate form with textarea" do
     expected = "<form action=\"#\" method=\"post\">
+  <label for=\"job\">Job</label>
   <textarea name=\"job\" cols=\"20\" rows=\"40\">hexlet</textarea>
 </form>"
     result = HexletCode.form_for user do |f|
@@ -71,6 +73,7 @@ describe "Form gen" do
 
   it "generate form with class" do
     expected = "<form action=\"#\" method=\"post\">
+  <label for=\"job\">Job</label>
   <textarea name=\"job\" cols=\"50\" rows=\"50\">hexlet</textarea>
 </form>"
     result = HexletCode.form_for user, url: "#" do |f|
