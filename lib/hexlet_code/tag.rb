@@ -11,13 +11,13 @@ module HexletCode
       if @single_tags_list.include?(tag_name)
         "<#{tag_name}#{text_attributes}>"
       else
-        result = block_given? ? yield : ""
+        result = block_given? ? yield : ''
         "<#{tag_name}#{text_attributes}>#{result}</#{tag_name}>"
       end
     end
 
     def self.attribute_generation(attributes)
-      return "" if attributes.empty?
+      return '' if attributes.empty?
 
       result = attributes.to_a.map { |key, value| " #{key}=\"#{value}\"" }
       result.join
