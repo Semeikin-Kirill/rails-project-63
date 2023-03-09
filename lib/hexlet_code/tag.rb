@@ -8,7 +8,7 @@ module HexletCode
     class << self
       def build(tag_name, attributes = {})
         text_attributes = attribute_generation attributes
-  
+
         if @single_tags_list.include?(tag_name)
           "<#{tag_name}#{text_attributes}>"
         else
@@ -16,10 +16,10 @@ module HexletCode
           "<#{tag_name}#{text_attributes}>#{result}</#{tag_name}>"
         end
       end
-  
+
       def attribute_generation(attributes)
         return '' if attributes.empty?
-  
+
         result = attributes.to_a.map { |key, value| " #{key}=\"#{value}\"" }
         result.join
       end

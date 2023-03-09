@@ -9,8 +9,8 @@ module HexletCode
   class << self
     def form_for(user, url: '#', **options)
       attributes_form = { action: url, method: 'post' }.merge(options)
-      Tag.build('form', attributes_form) do
-        f = FormCreate.new user
+      HexletCode::Tag.build('form', attributes_form) do
+        f = HexletCode::FormCreate.new user
         value = yield(f) if block_given?
         if f.result.empty?
           value
